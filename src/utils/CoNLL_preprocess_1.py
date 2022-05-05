@@ -8,22 +8,28 @@ test.words and test.pos-2012 lines
 '''
 
 
+import string
 from torchtext.datasets import CoNLL2000Chunking
-train,test=CoNLL2000Chunking(root='/content/drive/MyDrive/839_Datasets/CoNLL2000Chunking',split=('train','test'))  #Location to store dataset can be changed
+train,test=CoNLL2000Chunking(root='/content/drive/MyDrive/839_Datasets/CoNLL2000Chunking_2',split=('train','test'))  #Location to store dataset can be changed
 
 f1=open('CoNLL_train.words','w')
 f2=open('CoNLL_train.pos','w')
 f3=open('CoNLL_test.words','w')
 f4=open('CoNLL_test.pos','w')
 
+punc_list=list(string.punctuation)
+punc_list.append('``')
+punc_list.append("''")
 
 for train_iter in train:
   sent_train=train_iter[0]
   labels_train=train_iter[1]
   for word in sent_train:
-    f1.write(word+' ')
+      f1.write(word+' ')
   f1.write('\n')
   for pos_tag in labels_train:
+    if pos_tag in punc_list:
+      pos_tag='PUNCT'
     f2.write(pos_tag+' ')
   f2.write('\n')
 
@@ -34,6 +40,8 @@ for test_iter in test:
     f3.write(word+' ')
   f3.write('\n')
   for pos_tag in labels_test:
+    if pos_tag in punc_list:
+      pos_tag='PUNCT'
     f4.write(pos_tag+' ')
   f4.write('\n')
 
