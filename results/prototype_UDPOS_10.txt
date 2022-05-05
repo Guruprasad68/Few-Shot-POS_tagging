@@ -1,0 +1,306 @@
+Namespace(base_model='roberta', class_metric=False, data_size='', datapath='../data', dataset='UDPOS', episode_num=10, epoch=2, few_shot_sets=1, id2labels=None, instance_metric=False, just_eval=False, label2ids=None, load_checkpoint=False, load_dataset=False, load_model=False, load_model_name='save/conll_naiveft_bert_seq128_epoch', local_rank=None, lr=5e-05, max_seq_len=128, metric='euc', model_name='save/prototype/5shot_UDPOS_naiveft_roberta_seq128_epoch', norm=False, o_sent_ratio=0.0, qur_per_cls=3, reinit=False, save_dataset=False, soft_kmeans=False, sup_per_cls=10, tensorboard_path='./log', test_dataset_file=None, test_example='train.words', test_example_pos='train.pos', test_label_sentence_dict=None, test_pos='test.pos', test_sup_cls_num=10, test_text='test.words', train_dataset_file=None, train_label_sentence_dict=None, train_pos='train.pos', train_sup_cls_num=8, train_text='train.words', use_example=True, use_gpu='1', use_multi_prototype=False, warmup_proportion=0.1)
+let's use  1 GPUs!
+train text is train.words
+['UDPOS']
+['../data/UDPOS/train.words']
+{0: 'PROPN', 1: 'PUNCT', 2: 'ADJ', 3: 'NOUN', 4: 'VERB', 5: 'DET', 6: 'ADP', 7: 'AUX', 8: 'PRON', 9: 'PART', 10: 'SCONJ', 11: 'NUM', 12: 'ADV', 13: 'CCONJ', 14: 'X', 15: 'INTJ', 16: 'SYM'}
+{'PROPN': 0, 'PUNCT': 1, 'ADJ': 2, 'NOUN': 3, 'VERB': 4, 'DET': 5, 'ADP': 6, 'AUX': 7, 'PRON': 8, 'PART': 9, 'SCONJ': 10, 'NUM': 11, 'ADV': 12, 'CCONJ': 13, 'X': 14, 'INTJ': 15, 'SYM': 16}
+{'PROPN': 0, 'PUNCT': 1, 'ADJ': 2, 'NOUN': 3, 'VERB': 4, 'DET': 5, 'ADP': 6, 'AUX': 7, 'PRON': 8, 'PART': 9, 'SCONJ': 10, 'NUM': 11, 'ADV': 12, 'CCONJ': 13, 'X': 14, 'INTJ': 15, 'SYM': 16}
+[(4, 9246), (3, 10269), (6, 7791), (1, 11280), (2, 6790), (5, 7704), (8, 8040), (9, 4015), (7, 7306), (11, 2504), (10, 2956), (12, 5916), (13, 4772), (14, 578), (0, 438), (15, 633), (16, 496)]
+dataset label nums: [17]
+number of all training data points: 12543
+number of all testing data points: 2077
+sup_cls_num 8 test_sup_cls_num 8
+sub example num: 12543
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'class_metric', 'alpha', 'beta', 'classifier.weight', 'classifier.bias', 'layer1.0.weight', 'layer1.0.bias', 'layer2.weight', 'layer2.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+episode num: 121
+num training steps: 242
+num warmup steps: 24
+batch number: 0
+[12942, 23665, 12476, 34772, 23068, 16281, 17632, 12337, 18566, 5566, 3839, 3999, 10539, 6704, 847, 688, 599]
+batch number: 20
+batch number: 40
+batch number: 60
+K 391
+	Loss: 0.0361(val)	|	Prec: 13.3%(val)	|	Recall: 79.5%(val)	|	F1: 22.8%(val)
+Zero-shot result | time in 2 minutes, 25 seconds
+batch: 1/121 lr: 0.000002083 loss: 0.063410545
+batch: 2/121 lr: 0.000004167 loss: 0.038161439
+batch: 3/121 lr: 0.000006250 loss: 0.076235215
+batch: 4/121 lr: 0.000008333 loss: 0.045432523
+batch: 5/121 lr: 0.000010417 loss: 0.020898523
+batch: 6/121 lr: 0.000012500 loss: 0.024123587
+batch: 7/121 lr: 0.000014583 loss: 0.024498696
+batch: 8/121 lr: 0.000016667 loss: 0.020345312
+batch: 9/121 lr: 0.000018750 loss: 0.032899216
+batch: 10/121 lr: 0.000020833 loss: 0.040597089
+batch: 11/121 lr: 0.000022917 loss: 0.020550647
+batch: 12/121 lr: 0.000025000 loss: 0.026003949
+batch: 13/121 lr: 0.000027083 loss: 0.022102227
+batch: 14/121 lr: 0.000029167 loss: 0.016202703
+batch: 15/121 lr: 0.000031250 loss: 0.016586484
+batch: 16/121 lr: 0.000033333 loss: 0.011212431
+batch: 17/121 lr: 0.000035417 loss: 0.018471509
+batch: 18/121 lr: 0.000037500 loss: 0.027420156
+batch: 19/121 lr: 0.000039583 loss: 0.006892898
+batch: 20/121 lr: 0.000041667 loss: 0.039520174
+batch: 21/121 lr: 0.000043750 loss: 0.018850336
+batch: 22/121 lr: 0.000045833 loss: 0.014388266
+batch: 23/121 lr: 0.000047917 loss: 0.015676531
+batch: 24/121 lr: 0.000050000 loss: 0.015913788
+batch: 25/121 lr: 0.000049771 loss: 0.006365182
+batch: 26/121 lr: 0.000049541 loss: 0.008164609
+batch: 27/121 lr: 0.000049312 loss: 0.008444868
+batch: 28/121 lr: 0.000049083 loss: 0.001782577
+batch: 29/121 lr: 0.000048853 loss: 0.008818765
+batch: 30/121 lr: 0.000048624 loss: 0.004959135
+batch: 31/121 lr: 0.000048394 loss: 0.004274379
+batch: 32/121 lr: 0.000048165 loss: 0.030571175
+batch: 33/121 lr: 0.000047936 loss: 0.006531313
+batch: 34/121 lr: 0.000047706 loss: 0.016915324
+batch: 35/121 lr: 0.000047477 loss: 0.003102980
+batch: 36/121 lr: 0.000047248 loss: 0.013757819
+batch: 37/121 lr: 0.000047018 loss: 0.010706601
+batch: 38/121 lr: 0.000046789 loss: 0.013983083
+batch: 39/121 lr: 0.000046560 loss: 0.010895021
+batch: 40/121 lr: 0.000046330 loss: 0.003915026
+batch: 41/121 lr: 0.000046101 loss: 0.004900492
+batch: 42/121 lr: 0.000045872 loss: 0.006123628
+batch: 43/121 lr: 0.000045642 loss: 0.006106938
+batch: 44/121 lr: 0.000045413 loss: 0.107520700
+batch: 45/121 lr: 0.000045183 loss: 0.002786417
+batch: 46/121 lr: 0.000044954 loss: 0.004269311
+batch: 47/121 lr: 0.000044725 loss: 0.003061885
+batch: 48/121 lr: 0.000044495 loss: 0.006126345
+batch: 49/121 lr: 0.000044266 loss: 0.003427301
+batch: 50/121 lr: 0.000044037 loss: 0.009721970
+batch: 51/121 lr: 0.000043807 loss: 0.002218189
+batch: 52/121 lr: 0.000043578 loss: 0.003468256
+batch: 53/121 lr: 0.000043349 loss: 0.069444309
+batch: 54/121 lr: 0.000043119 loss: 0.021487502
+batch: 55/121 lr: 0.000042890 loss: 0.007940086
+batch: 56/121 lr: 0.000042661 loss: 0.009785292
+batch: 57/121 lr: 0.000042431 loss: 0.007868572
+batch: 58/121 lr: 0.000042202 loss: 0.003150107
+batch: 59/121 lr: 0.000041972 loss: 0.005404490
+batch: 60/121 lr: 0.000041743 loss: 0.004138972
+batch: 61/121 lr: 0.000041514 loss: 0.003316853
+batch: 62/121 lr: 0.000041284 loss: 0.006613190
+batch: 63/121 lr: 0.000041055 loss: 0.004990389
+batch: 64/121 lr: 0.000040826 loss: 0.003696479
+batch: 65/121 lr: 0.000040596 loss: 0.001961742
+batch: 66/121 lr: 0.000040367 loss: 0.005246376
+batch: 67/121 lr: 0.000040138 loss: 0.003422171
+batch: 68/121 lr: 0.000039908 loss: 0.004142833
+batch: 69/121 lr: 0.000039679 loss: 0.002384683
+batch: 70/121 lr: 0.000039450 loss: 0.112921317
+batch: 71/121 lr: 0.000039220 loss: 0.003214344
+batch: 72/121 lr: 0.000038991 loss: 0.019022697
+batch: 73/121 lr: 0.000038761 loss: 0.003411725
+batch: 74/121 lr: 0.000038532 loss: 0.007896493
+batch: 75/121 lr: 0.000038303 loss: 0.002193445
+batch: 76/121 lr: 0.000038073 loss: 0.001565283
+batch: 77/121 lr: 0.000037844 loss: 0.001401443
+batch: 78/121 lr: 0.000037615 loss: 0.011917682
+batch: 79/121 lr: 0.000037385 loss: 0.000809152
+batch: 80/121 lr: 0.000037156 loss: 0.003801510
+batch: 81/121 lr: 0.000036927 loss: 0.003336185
+batch: 82/121 lr: 0.000036697 loss: 0.001120601
+batch: 83/121 lr: 0.000036468 loss: 0.000895395
+batch: 84/121 lr: 0.000036239 loss: 0.005544127
+batch: 85/121 lr: 0.000036009 loss: 0.001705847
+batch: 86/121 lr: 0.000035780 loss: 0.008596094
+batch: 87/121 lr: 0.000035550 loss: 0.004138567
+batch: 88/121 lr: 0.000035321 loss: 0.004099021
+batch: 89/121 lr: 0.000035092 loss: 0.002621282
+batch: 90/121 lr: 0.000034862 loss: 0.000654484
+batch: 91/121 lr: 0.000034633 loss: 0.000233704
+batch: 92/121 lr: 0.000034404 loss: 0.008114198
+batch: 93/121 lr: 0.000034174 loss: 0.002507647
+batch: 94/121 lr: 0.000033945 loss: 0.000250972
+batch: 95/121 lr: 0.000033716 loss: 0.003367964
+batch: 96/121 lr: 0.000033486 loss: 0.001185655
+batch: 97/121 lr: 0.000033257 loss: 0.000468605
+batch: 98/121 lr: 0.000033028 loss: 0.000462208
+batch: 99/121 lr: 0.000032798 loss: 0.007477151
+batch: 100/121 lr: 0.000032569 loss: 0.001350392
+batch: 101/121 lr: 0.000032339 loss: 0.005314506
+batch: 102/121 lr: 0.000032110 loss: 0.002249228
+batch: 103/121 lr: 0.000031881 loss: 0.004530118
+batch: 104/121 lr: 0.000031651 loss: 0.009296665
+batch: 105/121 lr: 0.000031422 loss: 0.011729675
+batch: 106/121 lr: 0.000031193 loss: 0.000555754
+batch: 107/121 lr: 0.000030963 loss: 0.005705362
+batch: 108/121 lr: 0.000030734 loss: 0.011588977
+batch: 109/121 lr: 0.000030505 loss: 0.000709975
+batch: 110/121 lr: 0.000030275 loss: 0.070691114
+batch: 111/121 lr: 0.000030046 loss: 0.001404484
+batch: 112/121 lr: 0.000029817 loss: 0.003514442
+batch: 113/121 lr: 0.000029587 loss: 0.019019509
+batch: 114/121 lr: 0.000029358 loss: 0.000485683
+batch: 115/121 lr: 0.000029128 loss: 0.000415734
+batch: 116/121 lr: 0.000028899 loss: 0.011323801
+batch: 117/121 lr: 0.000028670 loss: 0.002322692
+batch: 118/121 lr: 0.000028440 loss: 0.008265067
+batch: 119/121 lr: 0.000028211 loss: 0.001461588
+batch: 120/121 lr: 0.000027982 loss: 0.000400812
+batch: 121/121 lr: 0.000027752 loss: 0.001173795
+	Loss: 0.0216(train)	|	Prec: 78.3%(train)	|	Recall: 86.4%(train)	|	F1: 82.1%(train)
+batch number: 0
+[12942, 23665, 12476, 34772, 23068, 16281, 17632, 12337, 18566, 5566, 3839, 3999, 10539, 6704, 847, 688, 599]
+batch number: 20
+batch number: 40
+batch number: 60
+K 391
+	Loss: 0.0051(val)	|	Prec: 77.9%(val)	|	Recall: 93.2%(val)	|	F1: 84.8%(val)
+microp per type: {'TJ': 0.7785714285714286} 
+micror_per_type: {'TJ': 0.9316239316239316} 
+microf1_per_type: {'TJ': 0.848249027237354}
+Epoch: 1  | time in 32 minutes, 40 seconds
+precision per type: {'TJ': 0.7785714285714286}
+recall per type: {'TJ': 0.9316239316239316}
+f1-score per type: {'TJ': 0.848249027237354}
+save/prototype/5shot_UDPOS_naiveft_roberta_seq128_epoch
+batch: 1/121 lr: 0.000027523 loss: 0.001170458
+batch: 2/121 lr: 0.000027294 loss: 0.002400567
+batch: 3/121 lr: 0.000027064 loss: 0.004971937
+batch: 4/121 lr: 0.000026835 loss: 0.000541593
+batch: 5/121 lr: 0.000026606 loss: 0.001219134
+batch: 6/121 lr: 0.000026376 loss: 0.000832521
+batch: 7/121 lr: 0.000026147 loss: 0.005745846
+batch: 8/121 lr: 0.000025917 loss: 0.004233624
+batch: 9/121 lr: 0.000025688 loss: 0.000342529
+batch: 10/121 lr: 0.000025459 loss: 0.004818016
+batch: 11/121 lr: 0.000025229 loss: 0.003605786
+batch: 12/121 lr: 0.000025000 loss: 0.000417013
+batch: 13/121 lr: 0.000024771 loss: 0.000677705
+batch: 14/121 lr: 0.000024541 loss: 0.001089489
+batch: 15/121 lr: 0.000024312 loss: 0.002212042
+batch: 16/121 lr: 0.000024083 loss: 0.004658134
+batch: 17/121 lr: 0.000023853 loss: 0.004489009
+batch: 18/121 lr: 0.000023624 loss: 0.008333183
+batch: 19/121 lr: 0.000023394 loss: 0.002320774
+batch: 20/121 lr: 0.000023165 loss: 0.009309099
+batch: 21/121 lr: 0.000022936 loss: 0.002730639
+batch: 22/121 lr: 0.000022706 loss: 0.003246350
+batch: 23/121 lr: 0.000022477 loss: 0.001827992
+batch: 24/121 lr: 0.000022248 loss: 0.000679762
+batch: 25/121 lr: 0.000022018 loss: 0.004242399
+batch: 26/121 lr: 0.000021789 loss: 0.000498650
+batch: 27/121 lr: 0.000021560 loss: 0.003735495
+batch: 28/121 lr: 0.000021330 loss: 0.006293216
+batch: 29/121 lr: 0.000021101 loss: 0.004586093
+batch: 30/121 lr: 0.000020872 loss: 0.001361589
+batch: 31/121 lr: 0.000020642 loss: 0.004402485
+batch: 32/121 lr: 0.000020413 loss: 0.001738837
+batch: 33/121 lr: 0.000020183 loss: 0.015820262
+batch: 34/121 lr: 0.000019954 loss: 0.005252091
+batch: 35/121 lr: 0.000019725 loss: 0.005483155
+batch: 36/121 lr: 0.000019495 loss: 0.002177649
+batch: 37/121 lr: 0.000019266 loss: 0.000489702
+batch: 38/121 lr: 0.000019037 loss: 0.017328426
+batch: 39/121 lr: 0.000018807 loss: 0.002847582
+batch: 40/121 lr: 0.000018578 loss: 0.001678530
+batch: 41/121 lr: 0.000018349 loss: 0.005895518
+batch: 42/121 lr: 0.000018119 loss: 0.000561889
+batch: 43/121 lr: 0.000017890 loss: 0.000972002
+batch: 44/121 lr: 0.000017661 loss: 0.004350653
+batch: 45/121 lr: 0.000017431 loss: 0.000588887
+batch: 46/121 lr: 0.000017202 loss: 0.006944867
+batch: 47/121 lr: 0.000016972 loss: 0.005037123
+batch: 48/121 lr: 0.000016743 loss: 0.004188692
+batch: 49/121 lr: 0.000016514 loss: 0.000433169
+batch: 50/121 lr: 0.000016284 loss: 0.001574182
+batch: 51/121 lr: 0.000016055 loss: 0.000829417
+batch: 52/121 lr: 0.000015826 loss: 0.001260004
+batch: 53/121 lr: 0.000015596 loss: 0.000821834
+batch: 54/121 lr: 0.000015367 loss: 0.002552334
+batch: 55/121 lr: 0.000015138 loss: 0.000307879
+batch: 56/121 lr: 0.000014908 loss: 0.000454874
+batch: 57/121 lr: 0.000014679 loss: 0.000301414
+batch: 58/121 lr: 0.000014450 loss: 0.000214976
+batch: 59/121 lr: 0.000014220 loss: 0.001114339
+batch: 60/121 lr: 0.000013991 loss: 0.000724709
+batch: 61/121 lr: 0.000013761 loss: 0.120054781
+batch: 62/121 lr: 0.000013532 loss: 0.001584335
+batch: 63/121 lr: 0.000013303 loss: 0.000248773
+batch: 64/121 lr: 0.000013073 loss: 0.001487035
+batch: 65/121 lr: 0.000012844 loss: 0.001619896
+batch: 66/121 lr: 0.000012615 loss: 0.006602112
+batch: 67/121 lr: 0.000012385 loss: 0.000956979
+batch: 68/121 lr: 0.000012156 loss: 0.000575619
+batch: 69/121 lr: 0.000011927 loss: 0.001460139
+batch: 70/121 lr: 0.000011697 loss: 0.000535928
+batch: 71/121 lr: 0.000011468 loss: 0.001163494
+batch: 72/121 lr: 0.000011239 loss: 0.002162247
+batch: 73/121 lr: 0.000011009 loss: 0.002192591
+batch: 74/121 lr: 0.000010780 loss: 0.001387643
+batch: 75/121 lr: 0.000010550 loss: 0.000424056
+batch: 76/121 lr: 0.000010321 loss: 0.001814335
+batch: 77/121 lr: 0.000010092 loss: 0.000216728
+batch: 78/121 lr: 0.000009862 loss: 0.000244273
+batch: 79/121 lr: 0.000009633 loss: 0.001315283
+batch: 80/121 lr: 0.000009404 loss: 0.029088264
+batch: 81/121 lr: 0.000009174 loss: 0.000497578
+batch: 82/121 lr: 0.000008945 loss: 0.008324632
+batch: 83/121 lr: 0.000008716 loss: 0.000299957
+batch: 84/121 lr: 0.000008486 loss: 0.000079546
+batch: 85/121 lr: 0.000008257 loss: 0.000352514
+batch: 86/121 lr: 0.000008028 loss: 0.002522257
+batch: 87/121 lr: 0.000007798 loss: 0.000431777
+batch: 88/121 lr: 0.000007569 loss: 0.011448452
+batch: 89/121 lr: 0.000007339 loss: 0.003455833
+batch: 90/121 lr: 0.000007110 loss: 0.002973222
+batch: 91/121 lr: 0.000006881 loss: 0.002519689
+batch: 92/121 lr: 0.000006651 loss: 0.000130651
+batch: 93/121 lr: 0.000006422 loss: 0.005975926
+batch: 94/121 lr: 0.000006193 loss: 0.009001885
+batch: 95/121 lr: 0.000005963 loss: 0.004073819
+batch: 96/121 lr: 0.000005734 loss: 0.002321154
+batch: 97/121 lr: 0.000005505 loss: 0.000371134
+batch: 98/121 lr: 0.000005275 loss: 0.010883220
+batch: 99/121 lr: 0.000005046 loss: 0.002512896
+batch: 100/121 lr: 0.000004817 loss: 0.000185424
+batch: 101/121 lr: 0.000004587 loss: 0.000637281
+batch: 102/121 lr: 0.000004358 loss: 0.000548573
+batch: 103/121 lr: 0.000004128 loss: 0.001144967
+batch: 104/121 lr: 0.000003899 loss: 0.003613934
+batch: 105/121 lr: 0.000003670 loss: 0.001079403
+batch: 106/121 lr: 0.000003440 loss: 0.071636975
+batch: 107/121 lr: 0.000003211 loss: 0.000629634
+batch: 108/121 lr: 0.000002982 loss: 0.001075454
+batch: 109/121 lr: 0.000002752 loss: 0.000141752
+batch: 110/121 lr: 0.000002523 loss: 0.000196351
+batch: 111/121 lr: 0.000002294 loss: 0.000610877
+batch: 112/121 lr: 0.000002064 loss: 0.001228227
+batch: 113/121 lr: 0.000001835 loss: 0.000462239
+batch: 114/121 lr: 0.000001606 loss: 0.000539610
+batch: 115/121 lr: 0.000001376 loss: 0.003426479
+batch: 116/121 lr: 0.000001147 loss: 0.000237884
+batch: 117/121 lr: 0.000000917 loss: 0.001678904
+batch: 118/121 lr: 0.000000688 loss: 0.004049621
+batch: 119/121 lr: 0.000000459 loss: 0.003084665
+batch: 120/121 lr: 0.000000229 loss: 0.002025256
+batch: 121/121 lr: 0.000000000 loss: 0.001511494
+	Loss: 0.0072(train)	|	Prec: 95.2%(train)	|	Recall: 96.8%(train)	|	F1: 96.0%(train)
+batch number: 0
+[12942, 23665, 12476, 34772, 23068, 16281, 17632, 12337, 18566, 5566, 3839, 3999, 10539, 6704, 847, 688, 599]
+batch number: 20
+batch number: 40
+batch number: 60
+K 391
+	Loss: 0.0049(val)	|	Prec: 76.6%(val)	|	Recall: 94.9%(val)	|	F1: 84.7%(val)
+microp per type: {'TJ': 0.7655172413793103} 
+micror_per_type: {'TJ': 0.9487179487179487} 
+microf1_per_type: {'TJ': 0.8473282442748091}
+Epoch: 2  | time in 32 minutes, 46 seconds
+precision per type: {'TJ': 0.7655172413793103}
+recall per type: {'TJ': 0.9487179487179487}
+f1-score per type: {'TJ': 0.8473282442748091}
+save/prototype/5shot_UDPOS_naiveft_roberta_seq128_epoch
+f1 scores: [0.8473282442748091] 
+ average f1 scores: 0.8473282442748091

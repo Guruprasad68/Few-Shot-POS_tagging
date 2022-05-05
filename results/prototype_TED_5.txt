@@ -1,0 +1,299 @@
+Namespace(base_model='roberta', class_metric=False, data_size='', datapath='../data', dataset='TED', episode_num=10, epoch=10, few_shot_sets=1, id2labels=None, instance_metric=False, just_eval=False, label2ids=None, load_checkpoint=False, load_dataset=False, load_model=False, load_model_name='save/conll_naiveft_bert_seq128_epoch', local_rank=None, lr=5e-05, max_seq_len=128, metric='euc', model_name='save/prototype/5shot_TED_naiveft_roberta_seq128_epoch', norm=False, o_sent_ratio=0.0, qur_per_cls=3, reinit=False, save_dataset=False, soft_kmeans=False, sup_per_cls=5, tensorboard_path='./log', test_dataset_file=None, test_example='train.words', test_example_pos='train.pos', test_label_sentence_dict=None, test_pos='test.pos', test_sup_cls_num=10, test_text='test.words', train_dataset_file=None, train_label_sentence_dict=None, train_pos='train.pos', train_sup_cls_num=8, train_text='train.words', use_example=True, use_gpu='1', use_multi_prototype=False, warmup_proportion=0.1)
+let's use  1 GPUs!
+train text is train.words
+['TED']
+['../data/TED/train.words']
+{0: 'PRP', 1: 'VBP', 2: 'DT', 3: 'JJ', 4: 'NN', 5: 'IN', 6: 'PUNCT', 7: 'VBD', 8: 'PRP$', 9: 'NNS', 10: 'RB', 11: 'TO', 12: 'RP', 13: 'NNP', 14: 'JJS', 15: 'CC', 16: 'VB', 17: 'RBR', 18: 'MD', 19: 'WRB', 20: 'WP', 21: 'VBG', 22: 'VBZ', 23: 'CD', 24: 'VBN', 25: 'WDT', 26: 'POS', 27: 'UH', 28: 'EX', 29: 'RBS', 30: 'PDT', 31: 'NNPS', 32: 'JJR', 33: 'WP$', 34: 'FW'}
+{'PRP': 0, 'VBP': 1, 'DT': 2, 'JJ': 3, 'NN': 4, 'IN': 5, 'PUNCT': 6, 'VBD': 7, 'PRP$': 8, 'NNS': 9, 'RB': 10, 'TO': 11, 'RP': 12, 'NNP': 13, 'JJS': 14, 'CC': 15, 'VB': 16, 'RBR': 17, 'MD': 18, 'WRB': 19, 'WP': 20, 'VBG': 21, 'VBZ': 22, 'CD': 23, 'VBN': 24, 'WDT': 25, 'POS': 26, 'UH': 27, 'EX': 28, 'RBS': 29, 'PDT': 30, 'NNPS': 31, 'JJR': 32, 'WP$': 33, 'FW': 34}
+{'PRP': 0, 'VBP': 1, 'DT': 2, 'JJ': 3, 'NN': 4, 'IN': 5, 'PUNCT': 6, 'VBD': 7, 'PRP$': 8, 'NNS': 9, 'RB': 10, 'TO': 11, 'RP': 12, 'NNP': 13, 'JJS': 14, 'CC': 15, 'VB': 16, 'RBR': 17, 'MD': 18, 'WRB': 19, 'WP': 20, 'VBG': 21, 'VBZ': 22, 'CD': 23, 'VBN': 24, 'WDT': 25, 'POS': 26, 'UH': 27, 'EX': 28, 'RBS': 29, 'PDT': 30, 'NNPS': 31, 'JJR': 32, 'WP$': 33, 'FW': 34}
+[(4, 716), (6, 862), (2, 717), (3, 521), (1, 371), (5, 640), (10, 554), (11, 288), (9, 419), (7, 200), (8, 154), (14, 27), (12, 99), (13, 141), (16, 416), (18, 183), (15, 493), (17, 24), (19, 92), (20, 113), (22, 415), (21, 246), (23, 131), (24, 175), (25, 138), (26, 19), (27, 17), (28, 36), (29, 15), (30, 20), (31, 16), (32, 42), (33, 1)]
+dataset label nums: [35]
+number of all training data points: 869
+number of all testing data points: 175
+sup_cls_num 8 test_sup_cls_num 17
+sub example num: 869
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'class_metric', 'alpha', 'beta', 'classifier.weight', 'classifier.bias', 'layer1.0.weight', 'layer1.0.bias', 'layer2.weight', 'layer2.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+episode num: 14
+num training steps: 140
+num warmup steps: 14
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0369(val)	|	Prec: 83.8%(val)	|	Recall: 74.1%(val)	|	F1: 78.7%(val)
+Zero-shot result | time in 0 minutes, 24 seconds
+batch: 1/14 lr: 0.000003571 loss: 0.073819111
+batch: 2/14 lr: 0.000007143 loss: 0.073140065
+batch: 3/14 lr: 0.000010714 loss: 0.030754743
+batch: 4/14 lr: 0.000014286 loss: 0.009127444
+batch: 5/14 lr: 0.000017857 loss: 0.024429128
+batch: 6/14 lr: 0.000021429 loss: 0.009286581
+batch: 7/14 lr: 0.000025000 loss: 0.018779001
+batch: 8/14 lr: 0.000028571 loss: 0.008915382
+batch: 9/14 lr: 0.000032143 loss: 0.026430115
+batch: 10/14 lr: 0.000035714 loss: 0.025131904
+batch: 11/14 lr: 0.000039286 loss: 0.008884396
+batch: 12/14 lr: 0.000042857 loss: 0.012936365
+batch: 13/14 lr: 0.000046429 loss: 0.020566278
+batch: 14/14 lr: 0.000050000 loss: 0.018669244
+	Loss: 0.0898(train)	|	Prec: 69.0%(train)	|	Recall: 81.2%(train)	|	F1: 74.6%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0145(val)	|	Prec: 90.8%(val)	|	Recall: 81.0%(val)	|	F1: 85.6%(val)
+microp per type: {'': 0.9083969465648855} 
+micror_per_type: {'': 0.8095238095238095} 
+microf1_per_type: {'': 0.856115107913669}
+Epoch: 1  | time in 4 minutes, 23 seconds
+precision per type: {'': 0.9083969465648855}
+recall per type: {'': 0.8095238095238095}
+f1-score per type: {'': 0.856115107913669}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+batch: 1/14 lr: 0.000049603 loss: 0.003304296
+batch: 2/14 lr: 0.000049206 loss: 0.001428511
+batch: 3/14 lr: 0.000048810 loss: 0.012813188
+batch: 4/14 lr: 0.000048413 loss: 0.000716044
+batch: 5/14 lr: 0.000048016 loss: 0.006661968
+batch: 6/14 lr: 0.000047619 loss: 0.012393334
+batch: 7/14 lr: 0.000047222 loss: 0.001740364
+batch: 8/14 lr: 0.000046825 loss: 0.003355321
+batch: 9/14 lr: 0.000046429 loss: 0.016120975
+batch: 10/14 lr: 0.000046032 loss: 0.007555881
+batch: 11/14 lr: 0.000045635 loss: 0.001766214
+batch: 12/14 lr: 0.000045238 loss: 0.026871748
+batch: 13/14 lr: 0.000044841 loss: 0.006350954
+batch: 14/14 lr: 0.000044444 loss: 0.004161529
+	Loss: 0.0395(train)	|	Prec: 88.0%(train)	|	Recall: 90.4%(train)	|	F1: 89.2%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0091(val)	|	Prec: 95.1%(val)	|	Recall: 92.5%(val)	|	F1: 93.8%(val)
+microp per type: {'': 0.951048951048951} 
+micror_per_type: {'': 0.9251700680272109} 
+microf1_per_type: {'': 0.9379310344827587}
+Epoch: 2  | time in 4 minutes, 21 seconds
+precision per type: {'': 0.951048951048951}
+recall per type: {'': 0.9251700680272109}
+f1-score per type: {'': 0.9379310344827587}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+batch: 1/14 lr: 0.000044048 loss: 0.001361477
+batch: 2/14 lr: 0.000043651 loss: 0.000935135
+batch: 3/14 lr: 0.000043254 loss: 0.004503168
+batch: 4/14 lr: 0.000042857 loss: 0.006409273
+batch: 5/14 lr: 0.000042460 loss: 0.017140747
+batch: 6/14 lr: 0.000042063 loss: 0.000378712
+batch: 7/14 lr: 0.000041667 loss: 0.000290449
+batch: 8/14 lr: 0.000041270 loss: 0.011166339
+batch: 9/14 lr: 0.000040873 loss: 0.004137215
+batch: 10/14 lr: 0.000040476 loss: 0.003856219
+batch: 11/14 lr: 0.000040079 loss: 0.006462722
+batch: 12/14 lr: 0.000039683 loss: 0.004080104
+batch: 13/14 lr: 0.000039286 loss: 0.000640086
+batch: 14/14 lr: 0.000038889 loss: 0.001108872
+	Loss: 0.0274(train)	|	Prec: 95.2%(train)	|	Recall: 94.9%(train)	|	F1: 95.1%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0079(val)	|	Prec: 93.9%(val)	|	Recall: 93.9%(val)	|	F1: 93.9%(val)
+microp per type: {'': 0.9387755102040817} 
+micror_per_type: {'': 0.9387755102040817} 
+microf1_per_type: {'': 0.9387755102040817}
+Epoch: 3  | time in 4 minutes, 21 seconds
+precision per type: {'': 0.9387755102040817}
+recall per type: {'': 0.9387755102040817}
+f1-score per type: {'': 0.9387755102040817}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+batch: 1/14 lr: 0.000038492 loss: 0.005822909
+batch: 2/14 lr: 0.000038095 loss: 0.000105064
+batch: 3/14 lr: 0.000037698 loss: 0.005305883
+batch: 4/14 lr: 0.000037302 loss: 0.000194402
+batch: 5/14 lr: 0.000036905 loss: 0.000335293
+batch: 6/14 lr: 0.000036508 loss: 0.009777136
+batch: 7/14 lr: 0.000036111 loss: 0.003049470
+batch: 8/14 lr: 0.000035714 loss: 0.000134972
+batch: 9/14 lr: 0.000035317 loss: 0.003794256
+batch: 10/14 lr: 0.000034921 loss: 0.006003332
+batch: 11/14 lr: 0.000034524 loss: 0.000223802
+batch: 12/14 lr: 0.000034127 loss: 0.014461009
+batch: 13/14 lr: 0.000033730 loss: 0.000619525
+batch: 14/14 lr: 0.000033333 loss: 0.000314399
+	Loss: 0.0185(train)	|	Prec: 95.6%(train)	|	Recall: 97.0%(train)	|	F1: 96.3%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0072(val)	|	Prec: 94.3%(val)	|	Recall: 94.9%(val)	|	F1: 94.6%(val)
+microp per type: {'': 0.9425675675675675} 
+micror_per_type: {'': 0.9489795918367347} 
+microf1_per_type: {'': 0.9457627118644069}
+Epoch: 4  | time in 4 minutes, 22 seconds
+precision per type: {'': 0.9425675675675675}
+recall per type: {'': 0.9489795918367347}
+f1-score per type: {'': 0.9457627118644069}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+batch: 1/14 lr: 0.000032937 loss: 0.000252535
+batch: 2/14 lr: 0.000032540 loss: 0.003351835
+batch: 3/14 lr: 0.000032143 loss: 0.007104484
+batch: 4/14 lr: 0.000031746 loss: 0.000074797
+batch: 5/14 lr: 0.000031349 loss: 0.000154548
+batch: 6/14 lr: 0.000030952 loss: 0.000045894
+batch: 7/14 lr: 0.000030556 loss: 0.000056412
+batch: 8/14 lr: 0.000030159 loss: 0.002356054
+batch: 9/14 lr: 0.000029762 loss: 0.001994365
+batch: 10/14 lr: 0.000029365 loss: 0.001197195
+batch: 11/14 lr: 0.000028968 loss: 0.000108496
+batch: 12/14 lr: 0.000028571 loss: 0.001925515
+batch: 13/14 lr: 0.000028175 loss: 0.002077457
+batch: 14/14 lr: 0.000027778 loss: 0.000488788
+	Loss: 0.0209(train)	|	Prec: 95.8%(train)	|	Recall: 96.7%(train)	|	F1: 96.2%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0066(val)	|	Prec: 94.6%(val)	|	Recall: 94.9%(val)	|	F1: 94.7%(val)
+microp per type: {'': 0.9457627118644067} 
+micror_per_type: {'': 0.9489795918367347} 
+microf1_per_type: {'': 0.9473684210526315}
+Epoch: 5  | time in 4 minutes, 26 seconds
+precision per type: {'': 0.9457627118644067}
+recall per type: {'': 0.9489795918367347}
+f1-score per type: {'': 0.9473684210526315}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+batch: 1/14 lr: 0.000027381 loss: 0.000139044
+batch: 2/14 lr: 0.000026984 loss: 0.001654115
+batch: 3/14 lr: 0.000026587 loss: 0.000856816
+batch: 4/14 lr: 0.000026190 loss: 0.000201623
+batch: 5/14 lr: 0.000025794 loss: 0.001341251
+batch: 6/14 lr: 0.000025397 loss: 0.000720112
+batch: 7/14 lr: 0.000025000 loss: 0.001821841
+batch: 8/14 lr: 0.000024603 loss: 0.000265367
+batch: 9/14 lr: 0.000024206 loss: 0.000094753
+batch: 10/14 lr: 0.000023810 loss: 0.001778896
+batch: 11/14 lr: 0.000023413 loss: 0.000367052
+batch: 12/14 lr: 0.000023016 loss: 0.001136086
+batch: 13/14 lr: 0.000022619 loss: 0.004162460
+batch: 14/14 lr: 0.000022222 loss: 0.001900780
+	Loss: 0.0155(train)	|	Prec: 97.4%(train)	|	Recall: 96.9%(train)	|	F1: 97.1%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0063(val)	|	Prec: 95.6%(val)	|	Recall: 95.2%(val)	|	F1: 95.4%(val)
+microp per type: {'': 0.9556313993174061} 
+micror_per_type: {'': 0.9523809523809523} 
+microf1_per_type: {'': 0.9540034071550255}
+Epoch: 6  | time in 4 minutes, 25 seconds
+precision per type: {'': 0.9556313993174061}
+recall per type: {'': 0.9523809523809523}
+f1-score per type: {'': 0.9540034071550255}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+batch: 1/14 lr: 0.000021825 loss: 0.002726158
+batch: 2/14 lr: 0.000021429 loss: 0.000041523
+batch: 3/14 lr: 0.000021032 loss: 0.000037235
+batch: 4/14 lr: 0.000020635 loss: 0.000803116
+batch: 5/14 lr: 0.000020238 loss: 0.001206645
+batch: 6/14 lr: 0.000019841 loss: 0.000106095
+batch: 7/14 lr: 0.000019444 loss: 0.002352872
+batch: 8/14 lr: 0.000019048 loss: 0.003240415
+batch: 9/14 lr: 0.000018651 loss: 0.000364260
+batch: 10/14 lr: 0.000018254 loss: 0.017561290
+batch: 11/14 lr: 0.000017857 loss: 0.000072256
+batch: 12/14 lr: 0.000017460 loss: 0.000054218
+batch: 13/14 lr: 0.000017063 loss: 0.001752226
+batch: 14/14 lr: 0.000016667 loss: 0.001733917
+	Loss: 0.0096(train)	|	Prec: 97.6%(train)	|	Recall: 98.0%(train)	|	F1: 97.8%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0061(val)	|	Prec: 95.3%(val)	|	Recall: 95.9%(val)	|	F1: 95.6%(val)
+microp per type: {'': 0.9527027027027027} 
+micror_per_type: {'': 0.9591836734693877} 
+microf1_per_type: {'': 0.9559322033898305}
+Epoch: 7  | time in 4 minutes, 24 seconds
+precision per type: {'': 0.9527027027027027}
+recall per type: {'': 0.9591836734693877}
+f1-score per type: {'': 0.9559322033898305}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+batch: 1/14 lr: 0.000016270 loss: 0.000048810
+batch: 2/14 lr: 0.000015873 loss: 0.000018390
+batch: 3/14 lr: 0.000015476 loss: 0.001799105
+batch: 4/14 lr: 0.000015079 loss: 0.000888433
+batch: 5/14 lr: 0.000014683 loss: 0.000206415
+batch: 6/14 lr: 0.000014286 loss: 0.001045333
+batch: 7/14 lr: 0.000013889 loss: 0.000040820
+batch: 8/14 lr: 0.000013492 loss: 0.000855947
+batch: 9/14 lr: 0.000013095 loss: 0.000032169
+batch: 10/14 lr: 0.000012698 loss: 0.000650063
+batch: 11/14 lr: 0.000012302 loss: 0.000019266
+batch: 12/14 lr: 0.000011905 loss: 0.000021911
+batch: 13/14 lr: 0.000011508 loss: 0.000609173
+batch: 14/14 lr: 0.000011111 loss: 0.000092434
+	Loss: 0.0102(train)	|	Prec: 97.7%(train)	|	Recall: 96.7%(train)	|	F1: 97.2%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0059(val)	|	Prec: 95.6%(val)	|	Recall: 95.9%(val)	|	F1: 95.8%(val)
+microp per type: {'': 0.9559322033898305} 
+micror_per_type: {'': 0.9591836734693877} 
+microf1_per_type: {'': 0.9575551782682513}
+Epoch: 8  | time in 4 minutes, 20 seconds
+precision per type: {'': 0.9559322033898305}
+recall per type: {'': 0.9591836734693877}
+f1-score per type: {'': 0.9575551782682513}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+batch: 1/14 lr: 0.000010714 loss: 0.000461278
+batch: 2/14 lr: 0.000010317 loss: 0.000197112
+batch: 3/14 lr: 0.000009921 loss: 0.000110366
+batch: 4/14 lr: 0.000009524 loss: 0.000274531
+batch: 5/14 lr: 0.000009127 loss: 0.000085651
+batch: 6/14 lr: 0.000008730 loss: 0.000059851
+batch: 7/14 lr: 0.000008333 loss: 0.000144216
+batch: 8/14 lr: 0.000007937 loss: 0.000359054
+batch: 9/14 lr: 0.000007540 loss: 0.002299449
+batch: 10/14 lr: 0.000007143 loss: 0.000358158
+batch: 11/14 lr: 0.000006746 loss: 0.001455055
+batch: 12/14 lr: 0.000006349 loss: 0.000044732
+batch: 13/14 lr: 0.000005952 loss: 0.000056300
+batch: 14/14 lr: 0.000005556 loss: 0.000104518
+	Loss: 0.0086(train)	|	Prec: 98.9%(train)	|	Recall: 98.9%(train)	|	F1: 98.9%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0058(val)	|	Prec: 95.9%(val)	|	Recall: 96.3%(val)	|	F1: 96.1%(val)
+microp per type: {'': 0.9593220338983051} 
+micror_per_type: {'': 0.9625850340136054} 
+microf1_per_type: {'': 0.9609507640067912}
+Epoch: 9  | time in 4 minutes, 22 seconds
+precision per type: {'': 0.9593220338983051}
+recall per type: {'': 0.9625850340136054}
+f1-score per type: {'': 0.9609507640067912}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+batch: 1/14 lr: 0.000005159 loss: 0.000525481
+batch: 2/14 lr: 0.000004762 loss: 0.001686764
+batch: 3/14 lr: 0.000004365 loss: 0.000510551
+batch: 4/14 lr: 0.000003968 loss: 0.000022691
+batch: 5/14 lr: 0.000003571 loss: 0.000213797
+batch: 6/14 lr: 0.000003175 loss: 0.000068107
+batch: 7/14 lr: 0.000002778 loss: 0.000614360
+batch: 8/14 lr: 0.000002381 loss: 0.000594132
+batch: 9/14 lr: 0.000001984 loss: 0.000046151
+batch: 10/14 lr: 0.000001587 loss: 0.000017752
+batch: 11/14 lr: 0.000001190 loss: 0.000285701
+batch: 12/14 lr: 0.000000794 loss: 0.000486439
+batch: 13/14 lr: 0.000000397 loss: 0.000441124
+batch: 14/14 lr: 0.000000000 loss: 0.000258919
+	Loss: 0.0063(train)	|	Prec: 97.9%(train)	|	Recall: 97.9%(train)	|	F1: 97.9%(train)
+batch number: 0
+[1186, 549, 1622, 899, 1945, 1533, 2083, 338, 186, 773, 973, 401, 106, 292, 29, 695, 672, 26, 233, 103, 138, 322, 608, 199, 203, 159, 20, 17, 40, 16, 20, 18, 47, 1, 0]
+K 27
+	Loss: 0.0059(val)	|	Prec: 95.9%(val)	|	Recall: 96.3%(val)	|	F1: 96.1%(val)
+microp per type: {'': 0.9593220338983051} 
+micror_per_type: {'': 0.9625850340136054} 
+microf1_per_type: {'': 0.9609507640067912}
+Epoch: 10  | time in 4 minutes, 22 seconds
+precision per type: {'': 0.9593220338983051}
+recall per type: {'': 0.9625850340136054}
+f1-score per type: {'': 0.9609507640067912}
+save/prototype/5shot_TED_naiveft_roberta_seq128_epoch
+f1 scores: [0.9609507640067912] 
+ average f1 scores: 0.9609507640067912
