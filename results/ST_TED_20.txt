@@ -1,0 +1,809 @@
+Namespace(base_model='roberta', batch_size=32, data_size='', datapath='../data', dataset='TED', epoch=10, few_shot_sets=5, id2labels=None, label2ids=None, load_checkpoint=False, load_dataset=False, load_model=False, load_model_name='save/conll_naiveft_bert_seq128_epoch', local_rank=None, lr=0.0001, max_seq_len=128, model_name='save/naiveft/5shot_TED_naiveft_roberta_seq128_epoch', reinit=False, soft_kmeans=False, test_cls_num=18, test_dataset_file=None, test_pos='test.pos', test_text='test.words', train_cls_num=4, train_dataset_file=None, train_pos='few_shot_20', train_text='few_shot_20', unsup_lr=0.5, unsup_pos='train.pos', unsup_text='train.words', use_gpu='1', use_truecase=False, warmup_proportion=0.1, weight_decay=0.01)
+0
+train text is few_shot_20_0.words
+['TED']
+{0: 'PRP', 1: 'VBD', 2: 'VBG', 3: 'TO', 4: 'VB', 5: 'JJ', 6: 'DT', 7: 'NN', 8: 'IN', 9: 'NNS', 10: 'PUNCT', 11: 'CC', 12: 'RB', 13: 'JJR', 14: 'MD', 15: 'VBP', 16: 'RP', 17: 'POS', 18: 'NNP', 19: 'WDT', 20: 'RBR', 21: 'VBZ', 22: 'VBN', 23: 'PDT', 24: 'PRP$', 25: 'CD', 26: 'WRB', 27: 'JJS', 28: 'EX', 29: 'WP', 30: 'RBS', 31: 'NNPS', 32: 'UH', 33: 'WP$', 34: 'FW'}
+{'PRP': 0, 'VBD': 1, 'VBG': 2, 'TO': 3, 'VB': 4, 'JJ': 5, 'DT': 6, 'NN': 7, 'IN': 8, 'NNS': 9, 'PUNCT': 10, 'CC': 11, 'RB': 12, 'JJR': 13, 'MD': 14, 'VBP': 15, 'RP': 16, 'POS': 17, 'NNP': 18, 'WDT': 19, 'RBR': 20, 'VBZ': 21, 'VBN': 22, 'PDT': 23, 'PRP$': 24, 'CD': 25, 'WRB': 26, 'JJS': 27, 'EX': 28, 'WP': 29, 'RBS': 30, 'NNPS': 31, 'UH': 32, 'WP$': 33, 'FW': 34}
+dataset label nums: [35]
+number of all training data points: 680
+number of all testing data points: 175
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+let's use  1 GPUs!
+num training steps: 210
+num warmup steps: 21
+shuffling sentences
+total 22 iters
+	Loss: 2.8974(train)	|	Prec: 42.4%(train)	|	Recall: 31.2%(train)	|	F1: 36.0%(train)
+	Loss: 1.3060(val)	|	Prec: 49.5%(val)	|	Recall: 84.7%(val)	|	F1: 62.5%(val)
+Epoch: 1  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.6088(train)	|	Prec: 82.8%(train)	|	Recall: 92.1%(train)	|	F1: 87.2%(train)
+	Loss: 0.2050(val)	|	Prec: 95.2%(val)	|	Recall: 94.9%(val)	|	F1: 95.1%(val)
+Epoch: 2  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1482(train)	|	Prec: 97.5%(train)	|	Recall: 94.9%(train)	|	F1: 96.2%(train)
+	Loss: 0.1580(val)	|	Prec: 97.2%(val)	|	Recall: 93.5%(val)	|	F1: 95.3%(val)
+Epoch: 3  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0822(train)	|	Prec: 98.5%(train)	|	Recall: 96.8%(train)	|	F1: 97.6%(train)
+	Loss: 0.1155(val)	|	Prec: 96.9%(val)	|	Recall: 96.3%(val)	|	F1: 96.6%(val)
+Epoch: 4  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0540(train)	|	Prec: 99.0%(train)	|	Recall: 97.1%(train)	|	F1: 98.1%(train)
+	Loss: 0.1234(val)	|	Prec: 96.3%(val)	|	Recall: 96.3%(val)	|	F1: 96.3%(val)
+Epoch: 5  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0348(train)	|	Prec: 99.3%(train)	|	Recall: 98.7%(train)	|	F1: 99.0%(train)
+	Loss: 0.1126(val)	|	Prec: 97.3%(val)	|	Recall: 96.3%(val)	|	F1: 96.8%(val)
+Epoch: 6  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0274(train)	|	Prec: 99.7%(train)	|	Recall: 99.2%(train)	|	F1: 99.4%(train)
+	Loss: 0.1137(val)	|	Prec: 96.7%(val)	|	Recall: 98.6%(val)	|	F1: 97.6%(val)
+Epoch: 7  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0214(train)	|	Prec: 99.9%(train)	|	Recall: 99.7%(train)	|	F1: 99.8%(train)
+	Loss: 0.1182(val)	|	Prec: 96.3%(val)	|	Recall: 97.6%(val)	|	F1: 97.0%(val)
+Epoch: 8  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0176(train)	|	Prec: 99.9%(train)	|	Recall: 99.7%(train)	|	F1: 99.8%(train)
+	Loss: 0.1189(val)	|	Prec: 96.6%(val)	|	Recall: 97.6%(val)	|	F1: 97.1%(val)
+Epoch: 9  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0165(train)	|	Prec: 99.9%(train)	|	Recall: 99.8%(train)	|	F1: 99.9%(train)
+	Loss: 0.1196(val)	|	Prec: 96.3%(val)	|	Recall: 97.6%(val)	|	F1: 97.0%(val)
+Epoch: 10  | time in 0 minutes, 28 seconds
+###### Self-Training #####
+unsup num: 869
+predicted probablity shape
+torch.Size([869, 128, 35])
+	Prec: 99.1%(val)	|	Recall: 98.5%(val)	|	F1: 98.8%(val)
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+num training steps: 237
+num warmup steps: 23
+unsup batches in one epoch: 2
+all unsup batches: 28
+shuffling sentences
+total 22 iters
+train_lc.py:44: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  prob = [torch.tensor(x[1]) for x in batch]
+/usr/local/lib/python3.7/dist-packages/torch/nn/functional.py:2887: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  "reduction: 'mean' divides the total loss by both the batch size and the support size."
+	Loss: 2.8436(train)	|	Prec: 20.1%(train)	|	Recall: 37.1%(train)	|	F1: 26.1%(train)
+	Loss: 1.1732(val)	|	Prec: 56.6%(val)	|	Recall: 85.7%(val)	|	F1: 68.2%(val)
+microp per type: {'': 0.5662921348314607} 
+micror_per_type: {'': 0.8571428571428571} 
+microf1_per_type: {'': 0.682002706359946}
+Epoch: 1  | time in 1 minutes, 19 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.5409(train)	|	Prec: 82.2%(train)	|	Recall: 91.7%(train)	|	F1: 86.7%(train)
+	Loss: 0.2061(val)	|	Prec: 93.1%(val)	|	Recall: 95.9%(val)	|	F1: 94.5%(val)
+microp per type: {'': 0.9306930693069307} 
+micror_per_type: {'': 0.9591836734693877} 
+microf1_per_type: {'': 0.9447236180904524}
+Epoch: 2  | time in 1 minutes, 50 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1476(train)	|	Prec: 97.2%(train)	|	Recall: 94.6%(train)	|	F1: 95.9%(train)
+	Loss: 0.1354(val)	|	Prec: 96.9%(val)	|	Recall: 95.2%(val)	|	F1: 96.1%(val)
+microp per type: {'': 0.9688581314878892} 
+micror_per_type: {'': 0.9523809523809523} 
+microf1_per_type: {'': 0.9605488850771869}
+Epoch: 3  | time in 2 minutes, 21 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0831(train)	|	Prec: 99.0%(train)	|	Recall: 96.3%(train)	|	F1: 97.6%(train)
+	Loss: 0.1339(val)	|	Prec: 96.9%(val)	|	Recall: 96.3%(val)	|	F1: 96.6%(val)
+microp per type: {'': 0.9691780821917808} 
+micror_per_type: {'': 0.9625850340136054} 
+microf1_per_type: {'': 0.9658703071672354}
+Epoch: 4  | time in 2 minutes, 52 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0535(train)	|	Prec: 99.2%(train)	|	Recall: 97.9%(train)	|	F1: 98.6%(train)
+	Loss: 0.1200(val)	|	Prec: 96.9%(val)	|	Recall: 96.9%(val)	|	F1: 96.9%(val)
+microp per type: {'': 0.9693877551020408} 
+micror_per_type: {'': 0.9693877551020408} 
+microf1_per_type: {'': 0.9693877551020408}
+Epoch: 5  | time in 3 minutes, 23 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0348(train)	|	Prec: 99.1%(train)	|	Recall: 97.9%(train)	|	F1: 98.5%(train)
+	Loss: 0.1261(val)	|	Prec: 96.6%(val)	|	Recall: 96.6%(val)	|	F1: 96.6%(val)
+microp per type: {'': 0.9659863945578231} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.9659863945578231}
+Epoch: 6  | time in 3 minutes, 55 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0235(train)	|	Prec: 99.4%(train)	|	Recall: 99.3%(train)	|	F1: 99.3%(train)
+	Loss: 0.1206(val)	|	Prec: 96.3%(val)	|	Recall: 96.3%(val)	|	F1: 96.3%(val)
+microp per type: {'': 0.9625850340136054} 
+micror_per_type: {'': 0.9625850340136054} 
+microf1_per_type: {'': 0.9625850340136054}
+Epoch: 7  | time in 4 minutes, 26 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0193(train)	|	Prec: 99.7%(train)	|	Recall: 99.4%(train)	|	F1: 99.5%(train)
+	Loss: 0.1238(val)	|	Prec: 95.6%(val)	|	Recall: 96.3%(val)	|	F1: 95.9%(val)
+microp per type: {'': 0.956081081081081} 
+micror_per_type: {'': 0.9625850340136054} 
+microf1_per_type: {'': 0.9593220338983051}
+Epoch: 8  | time in 4 minutes, 57 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0144(train)	|	Prec: 99.9%(train)	|	Recall: 99.8%(train)	|	F1: 99.8%(train)
+	Loss: 0.1223(val)	|	Prec: 96.3%(val)	|	Recall: 96.6%(val)	|	F1: 96.4%(val)
+microp per type: {'': 0.9627118644067797} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.964346349745331}
+Epoch: 9  | time in 5 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0125(train)	|	Prec: 99.8%(train)	|	Recall: 99.8%(train)	|	F1: 99.8%(train)
+	Loss: 0.1227(val)	|	Prec: 96.3%(val)	|	Recall: 96.9%(val)	|	F1: 96.6%(val)
+microp per type: {'': 0.9628378378378378} 
+micror_per_type: {'': 0.9693877551020408} 
+microf1_per_type: {'': 0.9661016949152542}
+Epoch: 10  | time in 5 minutes, 59 seconds
+1
+train text is few_shot_20_1.words
+['TED']
+{0: 'PRP', 1: 'VBD', 2: 'RB', 3: 'JJ', 4: 'VBG', 5: 'DT', 6: 'NN', 7: 'WP', 8: 'NNS', 9: 'PUNCT', 10: 'IN', 11: 'CD', 12: 'TO', 13: 'VBZ', 14: 'CC', 15: 'WRB', 16: 'VBP', 17: 'VB', 18: 'WDT', 19: 'VBN', 20: 'MD', 21: 'RP', 22: 'NNP', 23: 'PRP$', 24: 'JJS', 25: 'EX', 26: 'JJR', 27: 'UH', 28: 'NNPS', 29: 'RBR', 30: 'PDT', 31: 'POS', 32: 'RBS', 33: 'WP$', 34: 'FW'}
+{'PRP': 0, 'VBD': 1, 'RB': 2, 'JJ': 3, 'VBG': 4, 'DT': 5, 'NN': 6, 'WP': 7, 'NNS': 8, 'PUNCT': 9, 'IN': 10, 'CD': 11, 'TO': 12, 'VBZ': 13, 'CC': 14, 'WRB': 15, 'VBP': 16, 'VB': 17, 'WDT': 18, 'VBN': 19, 'MD': 20, 'RP': 21, 'NNP': 22, 'PRP$': 23, 'JJS': 24, 'EX': 25, 'JJR': 26, 'UH': 27, 'NNPS': 28, 'RBR': 29, 'PDT': 30, 'POS': 31, 'RBS': 32, 'WP$': 33, 'FW': 34}
+dataset label nums: [35]
+number of all training data points: 680
+number of all testing data points: 175
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+let's use  1 GPUs!
+num training steps: 210
+num warmup steps: 21
+shuffling sentences
+total 22 iters
+	Loss: 2.7607(train)	|	Prec: 24.9%(train)	|	Recall: 29.7%(train)	|	F1: 27.1%(train)
+	Loss: 1.2054(val)	|	Prec: 56.0%(val)	|	Recall: 83.7%(val)	|	F1: 67.1%(val)
+Epoch: 1  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.5729(train)	|	Prec: 84.9%(train)	|	Recall: 92.0%(train)	|	F1: 88.3%(train)
+	Loss: 0.2181(val)	|	Prec: 93.3%(val)	|	Recall: 94.6%(val)	|	F1: 93.9%(val)
+Epoch: 2  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1567(train)	|	Prec: 97.4%(train)	|	Recall: 95.3%(train)	|	F1: 96.4%(train)
+	Loss: 0.1519(val)	|	Prec: 95.6%(val)	|	Recall: 95.6%(val)	|	F1: 95.6%(val)
+Epoch: 3  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0834(train)	|	Prec: 98.5%(train)	|	Recall: 97.3%(train)	|	F1: 97.9%(train)
+	Loss: 0.1309(val)	|	Prec: 96.9%(val)	|	Recall: 96.3%(val)	|	F1: 96.6%(val)
+Epoch: 4  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0482(train)	|	Prec: 99.1%(train)	|	Recall: 99.1%(train)	|	F1: 99.1%(train)
+	Loss: 0.1332(val)	|	Prec: 96.9%(val)	|	Recall: 97.3%(val)	|	F1: 97.1%(val)
+Epoch: 5  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0369(train)	|	Prec: 99.6%(train)	|	Recall: 99.3%(train)	|	F1: 99.4%(train)
+	Loss: 0.1345(val)	|	Prec: 97.0%(val)	|	Recall: 97.6%(val)	|	F1: 97.3%(val)
+Epoch: 6  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0273(train)	|	Prec: 99.8%(train)	|	Recall: 99.4%(train)	|	F1: 99.6%(train)
+	Loss: 0.1358(val)	|	Prec: 96.0%(val)	|	Recall: 97.6%(val)	|	F1: 96.8%(val)
+Epoch: 7  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0228(train)	|	Prec: 99.7%(train)	|	Recall: 99.6%(train)	|	F1: 99.7%(train)
+	Loss: 0.1334(val)	|	Prec: 97.3%(val)	|	Recall: 97.3%(val)	|	F1: 97.3%(val)
+Epoch: 8  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0197(train)	|	Prec: 99.8%(train)	|	Recall: 99.4%(train)	|	F1: 99.6%(train)
+	Loss: 0.1363(val)	|	Prec: 96.6%(val)	|	Recall: 98.0%(val)	|	F1: 97.3%(val)
+Epoch: 9  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0170(train)	|	Prec: 99.7%(train)	|	Recall: 99.7%(train)	|	F1: 99.7%(train)
+	Loss: 0.1368(val)	|	Prec: 96.6%(val)	|	Recall: 98.0%(val)	|	F1: 97.3%(val)
+Epoch: 10  | time in 0 minutes, 28 seconds
+###### Self-Training #####
+unsup num: 869
+predicted probablity shape
+torch.Size([869, 128, 35])
+	Prec: 98.0%(val)	|	Recall: 98.9%(val)	|	F1: 98.5%(val)
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+num training steps: 237
+num warmup steps: 23
+unsup batches in one epoch: 2
+all unsup batches: 28
+shuffling sentences
+total 22 iters
+	Loss: 2.9187(train)	|	Prec: 30.5%(train)	|	Recall: 41.3%(train)	|	F1: 35.1%(train)
+	Loss: 1.2725(val)	|	Prec: 58.6%(val)	|	Recall: 89.5%(val)	|	F1: 70.8%(val)
+microp per type: {'': 0.5857461024498887} 
+micror_per_type: {'': 0.8945578231292517} 
+microf1_per_type: {'': 0.7079407806191117}
+Epoch: 1  | time in 1 minutes, 19 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.5939(train)	|	Prec: 82.0%(train)	|	Recall: 93.1%(train)	|	F1: 87.2%(train)
+	Loss: 0.2037(val)	|	Prec: 95.6%(val)	|	Recall: 95.6%(val)	|	F1: 95.6%(val)
+microp per type: {'': 0.95578231292517} 
+micror_per_type: {'': 0.95578231292517} 
+microf1_per_type: {'': 0.95578231292517}
+Epoch: 2  | time in 1 minutes, 50 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1438(train)	|	Prec: 98.1%(train)	|	Recall: 96.4%(train)	|	F1: 97.2%(train)
+	Loss: 0.1443(val)	|	Prec: 96.6%(val)	|	Recall: 97.3%(val)	|	F1: 96.9%(val)
+microp per type: {'': 0.9662162162162162} 
+micror_per_type: {'': 0.9727891156462585} 
+microf1_per_type: {'': 0.9694915254237287}
+Epoch: 3  | time in 2 minutes, 21 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0765(train)	|	Prec: 99.1%(train)	|	Recall: 97.7%(train)	|	F1: 98.4%(train)
+	Loss: 0.1345(val)	|	Prec: 95.9%(val)	|	Recall: 96.6%(val)	|	F1: 96.3%(val)
+microp per type: {'': 0.9594594594594594} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.9627118644067796}
+Epoch: 4  | time in 2 minutes, 52 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0479(train)	|	Prec: 99.4%(train)	|	Recall: 98.9%(train)	|	F1: 99.1%(train)
+	Loss: 0.1429(val)	|	Prec: 96.0%(val)	|	Recall: 98.3%(val)	|	F1: 97.1%(val)
+microp per type: {'': 0.9601328903654485} 
+micror_per_type: {'': 0.9829931972789115} 
+microf1_per_type: {'': 0.9714285714285713}
+Epoch: 5  | time in 3 minutes, 23 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0326(train)	|	Prec: 99.6%(train)	|	Recall: 99.3%(train)	|	F1: 99.4%(train)
+	Loss: 0.1455(val)	|	Prec: 96.0%(val)	|	Recall: 98.3%(val)	|	F1: 97.1%(val)
+microp per type: {'': 0.9601328903654485} 
+micror_per_type: {'': 0.9829931972789115} 
+microf1_per_type: {'': 0.9714285714285713}
+Epoch: 6  | time in 3 minutes, 54 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0239(train)	|	Prec: 99.6%(train)	|	Recall: 99.4%(train)	|	F1: 99.5%(train)
+	Loss: 0.1411(val)	|	Prec: 96.6%(val)	|	Recall: 96.9%(val)	|	F1: 96.8%(val)
+microp per type: {'': 0.9661016949152542} 
+micror_per_type: {'': 0.9693877551020408} 
+microf1_per_type: {'': 0.967741935483871}
+Epoch: 7  | time in 4 minutes, 26 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0183(train)	|	Prec: 100.0%(train)	|	Recall: 99.6%(train)	|	F1: 99.8%(train)
+	Loss: 0.1436(val)	|	Prec: 96.7%(val)	|	Recall: 98.3%(val)	|	F1: 97.5%(val)
+microp per type: {'': 0.9665551839464883} 
+micror_per_type: {'': 0.9829931972789115} 
+microf1_per_type: {'': 0.9747048903878583}
+Epoch: 8  | time in 4 minutes, 57 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0153(train)	|	Prec: 99.9%(train)	|	Recall: 99.7%(train)	|	F1: 99.8%(train)
+	Loss: 0.1486(val)	|	Prec: 97.3%(val)	|	Recall: 96.6%(val)	|	F1: 96.9%(val)
+microp per type: {'': 0.9726027397260274} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.9692832764505118}
+Epoch: 9  | time in 5 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0130(train)	|	Prec: 100.0%(train)	|	Recall: 99.8%(train)	|	F1: 99.9%(train)
+	Loss: 0.1477(val)	|	Prec: 97.0%(val)	|	Recall: 97.6%(val)	|	F1: 97.3%(val)
+microp per type: {'': 0.9695945945945946} 
+micror_per_type: {'': 0.9761904761904762} 
+microf1_per_type: {'': 0.9728813559322034}
+Epoch: 10  | time in 5 minutes, 59 seconds
+2
+train text is few_shot_20_2.words
+['TED']
+{0: 'PRP', 1: 'VBZ', 2: 'NNS', 3: 'RB', 4: 'PUNCT', 5: 'WRB', 6: 'VBP', 7: 'VB', 8: 'DT', 9: 'UH', 10: 'RP', 11: 'IN', 12: 'JJ', 13: 'JJR', 14: 'CC', 15: 'VBD', 16: 'NN', 17: 'TO', 18: 'RBR', 19: 'MD', 20: 'PRP$', 21: 'VBG', 22: 'WP', 23: 'WDT', 24: 'VBN', 25: 'PDT', 26: 'NNP', 27: 'EX', 28: 'CD', 29: 'JJS', 30: 'POS', 31: 'NNPS', 32: 'WP$', 33: 'RBS', 34: 'FW'}
+{'PRP': 0, 'VBZ': 1, 'NNS': 2, 'RB': 3, 'PUNCT': 4, 'WRB': 5, 'VBP': 6, 'VB': 7, 'DT': 8, 'UH': 9, 'RP': 10, 'IN': 11, 'JJ': 12, 'JJR': 13, 'CC': 14, 'VBD': 15, 'NN': 16, 'TO': 17, 'RBR': 18, 'MD': 19, 'PRP$': 20, 'VBG': 21, 'WP': 22, 'WDT': 23, 'VBN': 24, 'PDT': 25, 'NNP': 26, 'EX': 27, 'CD': 28, 'JJS': 29, 'POS': 30, 'NNPS': 31, 'WP$': 32, 'RBS': 33, 'FW': 34}
+dataset label nums: [35]
+number of all training data points: 679
+number of all testing data points: 175
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+let's use  1 GPUs!
+num training steps: 210
+num warmup steps: 21
+shuffling sentences
+total 22 iters
+	Loss: 2.7836(train)	|	Prec: 29.8%(train)	|	Recall: 28.4%(train)	|	F1: 29.1%(train)
+	Loss: 1.2927(val)	|	Prec: 50.9%(val)	|	Recall: 86.4%(val)	|	F1: 64.1%(val)
+Epoch: 1  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.5675(train)	|	Prec: 83.1%(train)	|	Recall: 93.6%(train)	|	F1: 88.1%(train)
+	Loss: 0.2041(val)	|	Prec: 94.9%(val)	|	Recall: 94.9%(val)	|	F1: 94.9%(val)
+Epoch: 2  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1429(train)	|	Prec: 97.4%(train)	|	Recall: 95.7%(train)	|	F1: 96.5%(train)
+	Loss: 0.1478(val)	|	Prec: 96.6%(val)	|	Recall: 97.6%(val)	|	F1: 97.1%(val)
+Epoch: 3  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0692(train)	|	Prec: 98.6%(train)	|	Recall: 98.0%(train)	|	F1: 98.3%(train)
+	Loss: 0.1276(val)	|	Prec: 96.3%(val)	|	Recall: 97.6%(val)	|	F1: 97.0%(val)
+Epoch: 4  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0417(train)	|	Prec: 99.2%(train)	|	Recall: 98.8%(train)	|	F1: 99.0%(train)
+	Loss: 0.1285(val)	|	Prec: 96.6%(val)	|	Recall: 96.9%(val)	|	F1: 96.8%(val)
+Epoch: 5  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0317(train)	|	Prec: 99.5%(train)	|	Recall: 99.0%(train)	|	F1: 99.2%(train)
+	Loss: 0.1296(val)	|	Prec: 96.3%(val)	|	Recall: 97.3%(val)	|	F1: 96.8%(val)
+Epoch: 6  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0245(train)	|	Prec: 99.8%(train)	|	Recall: 99.3%(train)	|	F1: 99.5%(train)
+	Loss: 0.1281(val)	|	Prec: 95.0%(val)	|	Recall: 97.6%(val)	|	F1: 96.3%(val)
+Epoch: 7  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0213(train)	|	Prec: 99.9%(train)	|	Recall: 99.5%(train)	|	F1: 99.7%(train)
+	Loss: 0.1218(val)	|	Prec: 97.3%(val)	|	Recall: 97.3%(val)	|	F1: 97.3%(val)
+Epoch: 8  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0172(train)	|	Prec: 99.9%(train)	|	Recall: 99.7%(train)	|	F1: 99.8%(train)
+	Loss: 0.1213(val)	|	Prec: 96.0%(val)	|	Recall: 97.6%(val)	|	F1: 96.8%(val)
+Epoch: 9  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0169(train)	|	Prec: 99.9%(train)	|	Recall: 99.7%(train)	|	F1: 99.8%(train)
+	Loss: 0.1210(val)	|	Prec: 96.0%(val)	|	Recall: 97.6%(val)	|	F1: 96.8%(val)
+Epoch: 10  | time in 0 minutes, 28 seconds
+###### Self-Training #####
+unsup num: 869
+predicted probablity shape
+torch.Size([869, 128, 35])
+	Prec: 98.2%(val)	|	Recall: 98.7%(val)	|	F1: 98.5%(val)
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+num training steps: 237
+num warmup steps: 23
+unsup batches in one epoch: 2
+all unsup batches: 28
+shuffling sentences
+total 22 iters
+	Loss: 2.8623(train)	|	Prec: 20.1%(train)	|	Recall: 30.7%(train)	|	F1: 24.3%(train)
+	Loss: 1.2078(val)	|	Prec: 65.3%(val)	|	Recall: 84.4%(val)	|	F1: 73.6%(val)
+microp per type: {'': 0.6526315789473685} 
+micror_per_type: {'': 0.8435374149659864} 
+microf1_per_type: {'': 0.7359050445103857}
+Epoch: 1  | time in 1 minutes, 18 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.5597(train)	|	Prec: 82.2%(train)	|	Recall: 92.1%(train)	|	F1: 86.9%(train)
+	Loss: 0.2103(val)	|	Prec: 91.3%(val)	|	Recall: 96.6%(val)	|	F1: 93.9%(val)
+microp per type: {'': 0.9131832797427653} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.9388429752066116}
+Epoch: 2  | time in 1 minutes, 50 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1318(train)	|	Prec: 97.7%(train)	|	Recall: 96.2%(train)	|	F1: 97.0%(train)
+	Loss: 0.1321(val)	|	Prec: 97.9%(val)	|	Recall: 96.6%(val)	|	F1: 97.3%(val)
+microp per type: {'': 0.9793103448275862} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.9726027397260274}
+Epoch: 3  | time in 2 minutes, 21 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0662(train)	|	Prec: 99.0%(train)	|	Recall: 98.1%(train)	|	F1: 98.5%(train)
+	Loss: 0.1317(val)	|	Prec: 94.7%(val)	|	Recall: 97.3%(val)	|	F1: 96.0%(val)
+microp per type: {'': 0.9470198675496688} 
+micror_per_type: {'': 0.9727891156462585} 
+microf1_per_type: {'': 0.959731543624161}
+Epoch: 4  | time in 2 minutes, 52 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0435(train)	|	Prec: 99.1%(train)	|	Recall: 98.6%(train)	|	F1: 98.8%(train)
+	Loss: 0.1415(val)	|	Prec: 96.3%(val)	|	Recall: 96.6%(val)	|	F1: 96.4%(val)
+microp per type: {'': 0.9627118644067797} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.964346349745331}
+Epoch: 5  | time in 3 minutes, 23 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0314(train)	|	Prec: 99.6%(train)	|	Recall: 99.1%(train)	|	F1: 99.4%(train)
+	Loss: 0.1305(val)	|	Prec: 96.6%(val)	|	Recall: 97.6%(val)	|	F1: 97.1%(val)
+microp per type: {'': 0.9663299663299664} 
+micror_per_type: {'': 0.9761904761904762} 
+microf1_per_type: {'': 0.9712351945854484}
+Epoch: 6  | time in 3 minutes, 55 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0220(train)	|	Prec: 99.9%(train)	|	Recall: 99.5%(train)	|	F1: 99.7%(train)
+	Loss: 0.1265(val)	|	Prec: 95.7%(val)	|	Recall: 97.6%(val)	|	F1: 96.6%(val)
+microp per type: {'': 0.9566666666666667} 
+micror_per_type: {'': 0.9761904761904762} 
+microf1_per_type: {'': 0.9663299663299664}
+Epoch: 7  | time in 4 minutes, 26 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0192(train)	|	Prec: 99.9%(train)	|	Recall: 99.6%(train)	|	F1: 99.8%(train)
+	Loss: 0.1332(val)	|	Prec: 97.0%(val)	|	Recall: 98.0%(val)	|	F1: 97.5%(val)
+microp per type: {'': 0.9696969696969697} 
+micror_per_type: {'': 0.9795918367346939} 
+microf1_per_type: {'': 0.9746192893401016}
+Epoch: 8  | time in 4 minutes, 57 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0173(train)	|	Prec: 99.9%(train)	|	Recall: 99.6%(train)	|	F1: 99.8%(train)
+	Loss: 0.1335(val)	|	Prec: 96.3%(val)	|	Recall: 97.6%(val)	|	F1: 97.0%(val)
+microp per type: {'': 0.9630872483221476} 
+micror_per_type: {'': 0.9761904761904762} 
+microf1_per_type: {'': 0.9695945945945946}
+Epoch: 9  | time in 5 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0148(train)	|	Prec: 99.9%(train)	|	Recall: 99.8%(train)	|	F1: 99.8%(train)
+	Loss: 0.1318(val)	|	Prec: 96.6%(val)	|	Recall: 97.6%(val)	|	F1: 97.1%(val)
+microp per type: {'': 0.9663299663299664} 
+micror_per_type: {'': 0.9761904761904762} 
+microf1_per_type: {'': 0.9712351945854484}
+Epoch: 10  | time in 5 minutes, 59 seconds
+3
+train text is few_shot_20_3.words
+['TED']
+{0: 'RB', 1: 'PUNCT', 2: 'WP', 3: 'MD', 4: 'PRP$', 5: 'JJ', 6: 'NN', 7: 'VB', 8: 'IN', 9: 'DT', 10: 'PRP', 11: 'VBP', 12: 'VBN', 13: 'CD', 14: 'NNS', 15: 'TO', 16: 'CC', 17: 'VBZ', 18: 'VBD', 19: 'POS', 20: 'NNP', 21: 'EX', 22: 'WDT', 23: 'RP', 24: 'WRB', 25: 'VBG', 26: 'PDT', 27: 'UH', 28: 'JJR', 29: 'NNPS', 30: 'RBS', 31: 'RBR', 32: 'JJS', 33: 'WP$', 34: 'FW'}
+{'RB': 0, 'PUNCT': 1, 'WP': 2, 'MD': 3, 'PRP$': 4, 'JJ': 5, 'NN': 6, 'VB': 7, 'IN': 8, 'DT': 9, 'PRP': 10, 'VBP': 11, 'VBN': 12, 'CD': 13, 'NNS': 14, 'TO': 15, 'CC': 16, 'VBZ': 17, 'VBD': 18, 'POS': 19, 'NNP': 20, 'EX': 21, 'WDT': 22, 'RP': 23, 'WRB': 24, 'VBG': 25, 'PDT': 26, 'UH': 27, 'JJR': 28, 'NNPS': 29, 'RBS': 30, 'RBR': 31, 'JJS': 32, 'WP$': 33, 'FW': 34}
+dataset label nums: [35]
+number of all training data points: 680
+number of all testing data points: 175
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+let's use  1 GPUs!
+num training steps: 210
+num warmup steps: 21
+shuffling sentences
+total 22 iters
+	Loss: 2.8530(train)	|	Prec: 38.2%(train)	|	Recall: 35.4%(train)	|	F1: 36.7%(train)
+	Loss: 1.2912(val)	|	Prec: 61.0%(val)	|	Recall: 90.8%(val)	|	F1: 73.0%(val)
+Epoch: 1  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.6060(train)	|	Prec: 85.6%(train)	|	Recall: 94.2%(train)	|	F1: 89.7%(train)
+	Loss: 0.1972(val)	|	Prec: 94.6%(val)	|	Recall: 96.3%(val)	|	F1: 95.4%(val)
+Epoch: 2  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1431(train)	|	Prec: 98.2%(train)	|	Recall: 96.4%(train)	|	F1: 97.3%(train)
+	Loss: 0.1322(val)	|	Prec: 95.3%(val)	|	Recall: 97.6%(val)	|	F1: 96.5%(val)
+Epoch: 3  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0762(train)	|	Prec: 98.8%(train)	|	Recall: 98.3%(train)	|	F1: 98.5%(train)
+	Loss: 0.1359(val)	|	Prec: 97.6%(val)	|	Recall: 96.6%(val)	|	F1: 97.1%(val)
+Epoch: 4  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0462(train)	|	Prec: 99.4%(train)	|	Recall: 99.2%(train)	|	F1: 99.3%(train)
+	Loss: 0.1321(val)	|	Prec: 97.9%(val)	|	Recall: 96.3%(val)	|	F1: 97.1%(val)
+Epoch: 5  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0323(train)	|	Prec: 99.7%(train)	|	Recall: 99.2%(train)	|	F1: 99.5%(train)
+	Loss: 0.1350(val)	|	Prec: 97.3%(val)	|	Recall: 96.9%(val)	|	F1: 97.1%(val)
+Epoch: 6  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0246(train)	|	Prec: 99.6%(train)	|	Recall: 99.6%(train)	|	F1: 99.6%(train)
+	Loss: 0.1374(val)	|	Prec: 97.9%(val)	|	Recall: 96.6%(val)	|	F1: 97.3%(val)
+Epoch: 7  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0194(train)	|	Prec: 99.7%(train)	|	Recall: 99.5%(train)	|	F1: 99.6%(train)
+	Loss: 0.1348(val)	|	Prec: 96.3%(val)	|	Recall: 97.3%(val)	|	F1: 96.8%(val)
+Epoch: 8  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0154(train)	|	Prec: 99.9%(train)	|	Recall: 99.7%(train)	|	F1: 99.8%(train)
+	Loss: 0.1349(val)	|	Prec: 97.3%(val)	|	Recall: 96.6%(val)	|	F1: 96.9%(val)
+Epoch: 9  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0139(train)	|	Prec: 99.9%(train)	|	Recall: 99.8%(train)	|	F1: 99.9%(train)
+	Loss: 0.1348(val)	|	Prec: 97.3%(val)	|	Recall: 96.6%(val)	|	F1: 96.9%(val)
+Epoch: 10  | time in 0 minutes, 28 seconds
+###### Self-Training #####
+unsup num: 869
+predicted probablity shape
+torch.Size([869, 128, 35])
+	Prec: 98.5%(val)	|	Recall: 98.0%(val)	|	F1: 98.2%(val)
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+num training steps: 237
+num warmup steps: 23
+unsup batches in one epoch: 2
+all unsup batches: 28
+shuffling sentences
+total 22 iters
+	Loss: 2.9428(train)	|	Prec: 39.2%(train)	|	Recall: 35.1%(train)	|	F1: 37.0%(train)
+	Loss: 1.3641(val)	|	Prec: 58.6%(val)	|	Recall: 89.1%(val)	|	F1: 70.7%(val)
+microp per type: {'': 0.5861297539149888} 
+micror_per_type: {'': 0.891156462585034} 
+microf1_per_type: {'': 0.7071524966261808}
+Epoch: 1  | time in 1 minutes, 19 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.5919(train)	|	Prec: 84.8%(train)	|	Recall: 93.2%(train)	|	F1: 88.8%(train)
+	Loss: 0.2277(val)	|	Prec: 95.6%(val)	|	Recall: 95.6%(val)	|	F1: 95.6%(val)
+microp per type: {'': 0.95578231292517} 
+micror_per_type: {'': 0.95578231292517} 
+microf1_per_type: {'': 0.95578231292517}
+Epoch: 2  | time in 1 minutes, 50 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1463(train)	|	Prec: 97.7%(train)	|	Recall: 96.4%(train)	|	F1: 97.1%(train)
+	Loss: 0.1384(val)	|	Prec: 95.0%(val)	|	Recall: 96.9%(val)	|	F1: 96.0%(val)
+microp per type: {'': 0.95} 
+micror_per_type: {'': 0.9693877551020408} 
+microf1_per_type: {'': 0.9595959595959594}
+Epoch: 3  | time in 2 minutes, 21 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0739(train)	|	Prec: 99.1%(train)	|	Recall: 98.1%(train)	|	F1: 98.6%(train)
+	Loss: 0.1285(val)	|	Prec: 96.6%(val)	|	Recall: 96.9%(val)	|	F1: 96.8%(val)
+microp per type: {'': 0.9661016949152542} 
+micror_per_type: {'': 0.9693877551020408} 
+microf1_per_type: {'': 0.967741935483871}
+Epoch: 4  | time in 2 minutes, 52 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0449(train)	|	Prec: 99.5%(train)	|	Recall: 99.1%(train)	|	F1: 99.3%(train)
+	Loss: 0.1263(val)	|	Prec: 95.9%(val)	|	Recall: 96.6%(val)	|	F1: 96.3%(val)
+microp per type: {'': 0.9594594594594594} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.9627118644067796}
+Epoch: 5  | time in 3 minutes, 23 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0308(train)	|	Prec: 99.6%(train)	|	Recall: 99.5%(train)	|	F1: 99.6%(train)
+	Loss: 0.1462(val)	|	Prec: 95.6%(val)	|	Recall: 96.9%(val)	|	F1: 96.3%(val)
+microp per type: {'': 0.9563758389261745} 
+micror_per_type: {'': 0.9693877551020408} 
+microf1_per_type: {'': 0.9628378378378377}
+Epoch: 6  | time in 3 minutes, 55 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0242(train)	|	Prec: 99.8%(train)	|	Recall: 99.6%(train)	|	F1: 99.7%(train)
+	Loss: 0.1371(val)	|	Prec: 97.6%(val)	|	Recall: 96.9%(val)	|	F1: 97.3%(val)
+microp per type: {'': 0.976027397260274} 
+micror_per_type: {'': 0.9693877551020408} 
+microf1_per_type: {'': 0.9726962457337883}
+Epoch: 7  | time in 4 minutes, 26 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0178(train)	|	Prec: 99.9%(train)	|	Recall: 99.6%(train)	|	F1: 99.8%(train)
+	Loss: 0.1360(val)	|	Prec: 95.7%(val)	|	Recall: 97.3%(val)	|	F1: 96.5%(val)
+microp per type: {'': 0.9565217391304348} 
+micror_per_type: {'': 0.9727891156462585} 
+microf1_per_type: {'': 0.9645868465430016}
+Epoch: 8  | time in 4 minutes, 57 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0151(train)	|	Prec: 99.9%(train)	|	Recall: 99.9%(train)	|	F1: 99.9%(train)
+	Loss: 0.1350(val)	|	Prec: 96.6%(val)	|	Recall: 97.3%(val)	|	F1: 96.9%(val)
+microp per type: {'': 0.9662162162162162} 
+micror_per_type: {'': 0.9727891156462585} 
+microf1_per_type: {'': 0.9694915254237287}
+Epoch: 9  | time in 5 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0140(train)	|	Prec: 99.9%(train)	|	Recall: 99.8%(train)	|	F1: 99.8%(train)
+	Loss: 0.1358(val)	|	Prec: 96.6%(val)	|	Recall: 97.3%(val)	|	F1: 96.9%(val)
+microp per type: {'': 0.9662162162162162} 
+micror_per_type: {'': 0.9727891156462585} 
+microf1_per_type: {'': 0.9694915254237287}
+Epoch: 10  | time in 5 minutes, 59 seconds
+4
+train text is few_shot_20_4.words
+['TED']
+{0: 'CC', 1: 'PRP', 2: 'VBD', 3: 'TO', 4: 'VB', 5: 'RP', 6: 'IN', 7: 'DT', 8: 'NN', 9: 'RBS', 10: 'PUNCT', 11: 'MD', 12: 'VBP', 13: 'JJ', 14: 'PDT', 15: 'VBZ', 16: 'VBG', 17: 'PRP$', 18: 'NNS', 19: 'RB', 20: 'WDT', 21: 'WP', 22: 'CD', 23: 'WRB', 24: 'NNP', 25: 'VBN', 26: 'JJR', 27: 'RBR', 28: 'EX', 29: 'UH', 30: 'POS', 31: 'NNPS', 32: 'JJS', 33: 'WP$', 34: 'FW'}
+{'CC': 0, 'PRP': 1, 'VBD': 2, 'TO': 3, 'VB': 4, 'RP': 5, 'IN': 6, 'DT': 7, 'NN': 8, 'RBS': 9, 'PUNCT': 10, 'MD': 11, 'VBP': 12, 'JJ': 13, 'PDT': 14, 'VBZ': 15, 'VBG': 16, 'PRP$': 17, 'NNS': 18, 'RB': 19, 'WDT': 20, 'WP': 21, 'CD': 22, 'WRB': 23, 'NNP': 24, 'VBN': 25, 'JJR': 26, 'RBR': 27, 'EX': 28, 'UH': 29, 'POS': 30, 'NNPS': 31, 'JJS': 32, 'WP$': 33, 'FW': 34}
+dataset label nums: [35]
+number of all training data points: 680
+number of all testing data points: 175
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+let's use  1 GPUs!
+num training steps: 210
+num warmup steps: 21
+shuffling sentences
+total 22 iters
+	Loss: 2.8902(train)	|	Prec: 16.2%(train)	|	Recall: 57.3%(train)	|	F1: 25.3%(train)
+	Loss: 1.4940(val)	|	Prec: 49.8%(val)	|	Recall: 83.7%(val)	|	F1: 62.4%(val)
+Epoch: 1  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.6488(train)	|	Prec: 80.7%(train)	|	Recall: 91.8%(train)	|	F1: 85.9%(train)
+	Loss: 0.2210(val)	|	Prec: 93.7%(val)	|	Recall: 95.6%(val)	|	F1: 94.6%(val)
+Epoch: 2  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1605(train)	|	Prec: 97.3%(train)	|	Recall: 95.9%(train)	|	F1: 96.6%(train)
+	Loss: 0.1334(val)	|	Prec: 96.6%(val)	|	Recall: 96.3%(val)	|	F1: 96.4%(val)
+Epoch: 3  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0830(train)	|	Prec: 98.6%(train)	|	Recall: 97.9%(train)	|	F1: 98.3%(train)
+	Loss: 0.1336(val)	|	Prec: 95.9%(val)	|	Recall: 95.6%(val)	|	F1: 95.7%(val)
+Epoch: 4  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0527(train)	|	Prec: 99.2%(train)	|	Recall: 99.0%(train)	|	F1: 99.1%(train)
+	Loss: 0.1414(val)	|	Prec: 95.0%(val)	|	Recall: 96.9%(val)	|	F1: 96.0%(val)
+Epoch: 5  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0350(train)	|	Prec: 99.5%(train)	|	Recall: 99.4%(train)	|	F1: 99.4%(train)
+	Loss: 0.1341(val)	|	Prec: 94.1%(val)	|	Recall: 97.3%(val)	|	F1: 95.7%(val)
+Epoch: 6  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0239(train)	|	Prec: 99.8%(train)	|	Recall: 99.7%(train)	|	F1: 99.7%(train)
+	Loss: 0.1441(val)	|	Prec: 94.4%(val)	|	Recall: 98.3%(val)	|	F1: 96.3%(val)
+Epoch: 7  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0192(train)	|	Prec: 99.9%(train)	|	Recall: 99.9%(train)	|	F1: 99.9%(train)
+	Loss: 0.1379(val)	|	Prec: 95.0%(val)	|	Recall: 98.0%(val)	|	F1: 96.5%(val)
+Epoch: 8  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0166(train)	|	Prec: 99.9%(train)	|	Recall: 99.8%(train)	|	F1: 99.9%(train)
+	Loss: 0.1342(val)	|	Prec: 95.7%(val)	|	Recall: 97.6%(val)	|	F1: 96.6%(val)
+Epoch: 9  | time in 0 minutes, 28 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0145(train)	|	Prec: 99.8%(train)	|	Recall: 99.8%(train)	|	F1: 99.8%(train)
+	Loss: 0.1355(val)	|	Prec: 95.7%(val)	|	Recall: 98.3%(val)	|	F1: 97.0%(val)
+Epoch: 10  | time in 0 minutes, 28 seconds
+###### Self-Training #####
+unsup num: 869
+predicted probablity shape
+torch.Size([869, 128, 35])
+	Prec: 98.5%(val)	|	Recall: 98.3%(val)	|	F1: 98.4%(val)
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaNER: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing RobertaNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaNER were not initialized from the model checkpoint at roberta-base and are newly initialized: ['background', 'classifier.weight', 'classifier.bias', 'classifiers.0.weight', 'classifiers.0.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+num training steps: 237
+num warmup steps: 23
+unsup batches in one epoch: 2
+all unsup batches: 28
+shuffling sentences
+total 22 iters
+	Loss: 2.7555(train)	|	Prec: 19.7%(train)	|	Recall: 32.9%(train)	|	F1: 24.7%(train)
+	Loss: 1.1236(val)	|	Prec: 63.9%(val)	|	Recall: 89.1%(val)	|	F1: 74.4%(val)
+microp per type: {'': 0.6390243902439025} 
+micror_per_type: {'': 0.891156462585034} 
+microf1_per_type: {'': 0.7443181818181819}
+Epoch: 1  | time in 1 minutes, 19 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.5353(train)	|	Prec: 85.7%(train)	|	Recall: 94.0%(train)	|	F1: 89.6%(train)
+	Loss: 0.2068(val)	|	Prec: 94.0%(val)	|	Recall: 96.6%(val)	|	F1: 95.3%(val)
+microp per type: {'': 0.9403973509933775} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.9530201342281879}
+Epoch: 2  | time in 1 minutes, 50 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.1477(train)	|	Prec: 97.5%(train)	|	Recall: 95.6%(train)	|	F1: 96.6%(train)
+	Loss: 0.1349(val)	|	Prec: 96.2%(val)	|	Recall: 95.2%(val)	|	F1: 95.7%(val)
+microp per type: {'': 0.9621993127147767} 
+micror_per_type: {'': 0.9523809523809523} 
+microf1_per_type: {'': 0.9572649572649573}
+Epoch: 3  | time in 2 minutes, 22 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0827(train)	|	Prec: 98.6%(train)	|	Recall: 97.8%(train)	|	F1: 98.2%(train)
+	Loss: 0.1456(val)	|	Prec: 95.6%(val)	|	Recall: 96.6%(val)	|	F1: 96.1%(val)
+microp per type: {'': 0.9562289562289562} 
+micror_per_type: {'': 0.9659863945578231} 
+microf1_per_type: {'': 0.9610829103214891}
+Epoch: 4  | time in 2 minutes, 53 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0480(train)	|	Prec: 99.1%(train)	|	Recall: 99.1%(train)	|	F1: 99.1%(train)
+	Loss: 0.1439(val)	|	Prec: 95.7%(val)	|	Recall: 97.3%(val)	|	F1: 96.5%(val)
+microp per type: {'': 0.9565217391304348} 
+micror_per_type: {'': 0.9727891156462585} 
+microf1_per_type: {'': 0.9645868465430016}
+Epoch: 5  | time in 3 minutes, 24 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0319(train)	|	Prec: 99.7%(train)	|	Recall: 99.6%(train)	|	F1: 99.6%(train)
+	Loss: 0.1458(val)	|	Prec: 94.7%(val)	|	Recall: 98.0%(val)	|	F1: 96.3%(val)
+microp per type: {'': 0.9473684210526315} 
+micror_per_type: {'': 0.9795918367346939} 
+microf1_per_type: {'': 0.963210702341137}
+Epoch: 6  | time in 3 minutes, 56 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0228(train)	|	Prec: 99.7%(train)	|	Recall: 99.7%(train)	|	F1: 99.7%(train)
+	Loss: 0.1360(val)	|	Prec: 96.3%(val)	|	Recall: 97.6%(val)	|	F1: 97.0%(val)
+microp per type: {'': 0.9630872483221476} 
+micror_per_type: {'': 0.9761904761904762} 
+microf1_per_type: {'': 0.9695945945945946}
+Epoch: 7  | time in 4 minutes, 27 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0174(train)	|	Prec: 99.7%(train)	|	Recall: 99.9%(train)	|	F1: 99.8%(train)
+	Loss: 0.1424(val)	|	Prec: 96.0%(val)	|	Recall: 98.0%(val)	|	F1: 97.0%(val)
+microp per type: {'': 0.96} 
+micror_per_type: {'': 0.9795918367346939} 
+microf1_per_type: {'': 0.9696969696969697}
+Epoch: 8  | time in 4 minutes, 58 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0143(train)	|	Prec: 100.0%(train)	|	Recall: 99.8%(train)	|	F1: 99.9%(train)
+	Loss: 0.1425(val)	|	Prec: 95.4%(val)	|	Recall: 98.0%(val)	|	F1: 96.6%(val)
+microp per type: {'': 0.9536423841059603} 
+micror_per_type: {'': 0.9795918367346939} 
+microf1_per_type: {'': 0.9664429530201342}
+Epoch: 9  | time in 5 minutes, 29 seconds
+shuffling sentences
+total 22 iters
+	Loss: 0.0128(train)	|	Prec: 99.9%(train)	|	Recall: 99.9%(train)	|	F1: 99.9%(train)
+	Loss: 0.1437(val)	|	Prec: 95.4%(val)	|	Recall: 98.0%(val)	|	F1: 96.6%(val)
+microp per type: {'': 0.9536423841059603} 
+micror_per_type: {'': 0.9795918367346939} 
+microf1_per_type: {'': 0.9664429530201342}
+Epoch: 10  | time in 6 minutes, 1 seconds
+f1 scores: [0.9695945945945946, 0.9729729729729729, 0.9679595278246205, 0.9692832764505118, 0.9697986577181208] 
+ average f1 scores: 0.9699218059121641
+self-training f1 scores: [0.9661016949152542, 0.9728813559322034, 0.9712351945854484, 0.9694915254237287, 0.9664429530201342] 
+ average self-training f1 scores: 0.9692305447753536
