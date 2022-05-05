@@ -1,5 +1,5 @@
 ## Few-Shot POS-Tagging
-
+This project was done as a part of UW-Madison's course CS839: Learn more with less supervision by [Prof. Fred Sala](https://pages.cs.wisc.edu/~fredsala/).\
 Co-Author: [Julia Kroll](https://github.com/j-kroll)
 
 We study Few-Shot POS-Tagging using prototype learning and self-training methods following [huang et al.,](https://arxiv.org/abs/2012.14978)'s work on NER, a similar sequence labeling task. The code was adapted from their [codebase](https://github.com/few-shot-NER-benchmark/BaselineCode).
