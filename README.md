@@ -24,3 +24,6 @@ The results obtained were as follows:
 |UDPOS| Prototype Learning | **0.8790** |5-shot|
 |TED |Self-Training| **0.9692**  | 20-shot
 |TED | Prototype Learning| 0.9610| 5-shot |
+
+
+More details can be found in the [report](https://drive.google.com/file/d/1lIbFzrDj6Eev_MkMT2pXyzXahBe1Fiu0/view?usp=sharing).
